@@ -1,4 +1,12 @@
 jdk: openjdk11
 language: java
-script:
-  - "./mvnw clear test"
+jobs:
+  include:
+    - stage: "Testing"
+      name: "Running e2e tests"
+      script:
+        - "./mvnw clean test"
+    - stage: deploy
+      name: "Deployment"
+      script:
+        - "echo 'Deployment starting...'"
