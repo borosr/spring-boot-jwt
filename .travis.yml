@@ -8,5 +8,8 @@ jobs:
         - "./mvnw clean test"
     - stage: deploy
       name: "Deployment"
-      script:
-        - "echo 'Deployment starting...'"
+      script: skip
+      deploy: &heroku
+        provider: heroku
+        app: borosr-spring-boot-app
+        api_key: $HEROKU_AUTH_TOKEN
