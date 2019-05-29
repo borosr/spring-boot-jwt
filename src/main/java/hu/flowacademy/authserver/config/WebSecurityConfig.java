@@ -35,7 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   protected void configure(final HttpSecurity http) throws Exception {
     // @formatter:off
 		http.authorizeRequests()
-		.antMatchers("/login", "/oauth/**", "/oauth/token/revokeById/**", "/tokens/**").permitAll()
+		.antMatchers("/", "/login", "/oauth/**", "/oauth/token/revokeById/**", "/tokens/**").permitAll()
 		.anyRequest().authenticated()
 		.and().formLogin().permitAll()
 		.and().csrf().disable();
